@@ -7,7 +7,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -37,5 +39,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return user;
     }
 
+    public List<UserData> listUsers() {
+        ArrayList<UserData> lst = new ArrayList<>();
+        lst.add(findUser("admin"));
+        return lst;
+    }
 
 }
